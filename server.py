@@ -10,13 +10,13 @@ DISCONNECT_MESSAGE = "[AVKOBLET]"
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDR)
-allclients = []
+#allclients = []
 
 def handle_client(conn, addr):
     print(f"[NY TILKOBLING] {addr} tilkoblet.")
     
-    broadcast(addr)
-    allclients.append(conn)
+    #broadcast(addr)
+    #allclients.append(conn)
     
     connected = True
     while connected:
@@ -32,9 +32,9 @@ def handle_client(conn, addr):
         
     conn.close()
     
-def broadcast(bruker):
-   for client in allclients:
-       client.send(f"Nå har bruker {bruker} koblet seg til serveren!".encode(FORMAT))
+#def broadcast(bruker):
+   #for client in allclients:
+       #client.send(f"Nå har bruker {bruker} koblet seg til serveren!".encode(FORMAT))
     
 def start():
     server.listen()
